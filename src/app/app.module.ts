@@ -13,6 +13,14 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
+import { AffaireService } from './service/affaire.service';
+import { DocumentService } from './service/document.service';
+import { PhaseService } from './service/phase.service';
+import { RoleService } from './service/role.service';
+import { TacheService } from './service/tache.service';
+import { TribunalService } from './service/tribunal.service';
+import { UtilisateurService } from './service/utilisateur.service';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 @NgModule({
   imports: [
@@ -25,8 +33,8 @@ import { ComponentsModule } from "./components/components.module";
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
-  providers: [],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, EditUserComponent],
+  providers: [AffaireService, DocumentService, PhaseService, RoleService, TacheService, TribunalService, UtilisateurService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -11,19 +11,19 @@ export class UtilisateurService {
   constructor(private httpClient: HttpClient) { }
 
   public getAllUtilisateur(): Observable<any> {
-    return this.httpClient.get('http://localhost:9090/utilisateurs').map(response => response);
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/utilisateurs').map(response => response);
   }
   public getUtilisateur(id: number): Observable<any> {
-    return this.httpClient.get('http://localhost:9090/utilisateurs/' + id);
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/utilisateurs/' + id);
   }
-  public saveUtilisateur(utilisateur: any): Observable<any> {
-    return this.httpClient.post('http://localhost:9090/utilisateurs', utilisateur);
+  public saveUtilisateur(user: any): Observable<any> {
+    return this.httpClient.post('http://localhost:9090/gestionContentieux/utilisateurs', user);
   }
   public deleteUtilisateur(id: number): Observable<any> {
-    return this.httpClient.delete('http://localhost:9090/utilisateurs/' + id);
+    return this.httpClient.delete('http://localhost:9090/gestionContentieux/utilisateurs/' + id);
   }
-  public updateUtilisateur(utilisateur: any): Observable<any> {
-    var utilisateurParse = JSON.parse(utilisateur);
-    return this.httpClient.put('http://localhost:9090/utilisateurs/' + utilisateurParse.idUtilisateur, utilisateurParse);
+  public updateUtilisateur(user: any): Observable<any> {
+    var userParse = JSON.parse(user);
+    return this.httpClient.put('http://localhost:9090/gestionContentieux/utilisateurs/' + userParse.idUtilisateur, userParse);
   }
 }
