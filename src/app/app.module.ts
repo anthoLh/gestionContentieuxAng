@@ -24,6 +24,8 @@ import { AffaireComponent } from './pages/affaire/affaire.component';
 import { TacheComponent } from './pages/tache/tache.component';
 import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
 import { TableauDeBordComponent } from './pages/tableau-de-bord/tableau-de-bord.component';
+import { AppService } from './app.service';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   imports: [
@@ -37,7 +39,7 @@ import { TableauDeBordComponent } from './pages/tableau-de-bord/tableau-de-bord.
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, AffaireComponent, TacheComponent, TribunauxComponent, TableauDeBordComponent],
-  providers: [AffaireService, DocumentService, PhaseService, RoleService, TacheService, TribunalService, UtilisateurService],
+  providers: [AppService, AffaireService, DocumentService, PhaseService, RoleService, TacheService, TribunalService, UtilisateurService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

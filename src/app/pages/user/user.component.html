@@ -1,50 +1,51 @@
 <div class=" content">
-  <div class=" row">
-    <div class=" col-md-8">
-      <div class=" card">
-        <div class=" card-header">
-          <h5 class=" title">Ajouter un utilisateur</h5>
-        </div>
-        <div class=" card-body">
-          <form (ngSubmit)="createUser()">
-            <div class=" row">
-              <!-- <div class=" col-md-5 pr-md-1">
+  <div [hidden]="!authenticated()">
+    <div class=" row">
+      <div class=" col-md-8">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 class=" title">Ajouter un utilisateur</h5>
+          </div>
+          <div class=" card-body">
+            <form (ngSubmit)="createUser()">
+              <div class=" row">
+                <!-- <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
                   <label> Company (disabled) </label>
                   <input class=" form-control" disabled="" placeholder="Company" type="text"
                     value="Creative Code Inc." />
                 </div>
               </div> -->
-              <div class=" col-md-3 px-md-1">
-                <div class=" form-group">
-                  <label> Username </label>
-                  <input class=" form-control" placeholder="Username" type="text" value="Username" />
+                <div class=" col-md-3 px-md-1">
+                  <div class=" form-group">
+                    <label> Username </label>
+                    <input class=" form-control" placeholder="Username" type="text" value="Username" />
+                  </div>
+                </div>
+                <div class=" col-md-4 pl-md-1">
+                  <div class=" form-group">
+                    <label for="exampleInputEmail1"> Email address </label>
+                    <input class=" form-control" placeholder="mike@email.com" type="email" />
+                  </div>
                 </div>
               </div>
-              <div class=" col-md-4 pl-md-1">
-                <div class=" form-group">
-                  <label for="exampleInputEmail1"> Email address </label>
-                  <input class=" form-control" placeholder="mike@email.com" type="email" />
+              <div class=" row">
+                <div class=" col-md-6 pr-md-1">
+                  <div class=" form-group">
+                    <label> Nom </label>
+                    <input class=" form-control" placeholder="Nom" type="text" [(ngModel)]="user.nomUtilisateur"
+                      name="nomUtilisateur" />
+                  </div>
+                </div>
+                <div class=" col-md-6 pl-md-1">
+                  <div class=" form-group">
+                    <label> Prénom </label>
+                    <input class=" form-control" placeholder="Prénom" type="text" [(ngModel)]="user.prenomUtilisateur"
+                      name="prenomUtilisateur" />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class=" row">
-              <div class=" col-md-6 pr-md-1">
-                <div class=" form-group">
-                  <label> Nom </label>
-                  <input class=" form-control" placeholder="Nom" type="text" [(ngModel)]="user.nomUtilisateur"
-                    name="nomUtilisateur" />
-                </div>
-              </div>
-              <div class=" col-md-6 pl-md-1">
-                <div class=" form-group">
-                  <label> Prénom </label>
-                  <input class=" form-control" placeholder="Prénom" type="text" [(ngModel)]="user.prenomUtilisateur"
-                    name="prenomUtilisateur" />
-                </div>
-              </div>
-            </div>
-            <!-- <div class=" row">
+              <!-- <div class=" row">
               <div class=" col-md-12">
                 <div class=" form-group">
                   <label> Address </label>
@@ -84,14 +85,14 @@
                 </div>
               </div>
             </div> -->
-            <div class=" card-footer">
-              <button class=" btn btn-fill btn-danger" type="submit">Save</button>
-            </div>
-          </form>
+              <div class=" card-footer">
+                <button class=" btn btn-fill btn-danger" type="submit">Save</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- <div class=" col-md-4">
+      <!-- <div class=" col-md-4">
       <div class=" card card-user">
         <div class=" card-body">
           <p class=" card-text"></p>
@@ -128,38 +129,42 @@
         </div>
       </div>
     </div> -->
-  </div>
+    </div>
 
-  <div class=" row">
-    <div class=" col-md-12">
-      <div class=" card">
-        <div class=" card-header">
-          <h4 class=" card-title">Liste des utilisateurs</h4>
-        </div>
-        <div class=" card-body">
-          <div class=" table-responsive">
-            <table class=" table tablesorter">
-              <thead>
-                <tr>
-                  <th>Nom</th>
-                  <th>Prénom</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let u of users">
-                  <td>{{u.nomUtilisateur}}</td>
-                  <td>{{u.prenomUtilisateur}}</td>
-                  <td>
-                    <button (click)="deleteUser(u)">Delete</button>
-                    <button (click)="editUser(u)">Edit</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h4 class=" card-title">Liste des utilisateurs</h4>
+          </div>
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let u of users">
+                    <td>{{u.nomUtilisateur}}</td>
+                    <td>{{u.prenomUtilisateur}}</td>
+                    <td>
+                      <button (click)="deleteUser(u)">Delete</button>
+                      <button (click)="editUser(u)">Edit</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div [hidden]="authenticated()">
+      <p>Login to see your user interface</p>
   </div>
 </div>

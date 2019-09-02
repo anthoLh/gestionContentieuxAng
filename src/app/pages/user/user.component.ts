@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Utilisateur } from 'src/app/model/utilisateur';
 import { UtilisateurService } from 'src/app/service/utilisateur.service';
 import { Router } from '@angular/router';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: "app-user",
@@ -10,7 +11,11 @@ import { Router } from '@angular/router';
 export class UserComponent implements OnInit {
   users:any[];
   user: Utilisateur = new Utilisateur();
-  constructor(private userService: UtilisateurService, private router: Router) {}
+  constructor(private userService: UtilisateurService, private router: Router, private appService: AppService) {}
+ 
+  authenticated(){
+    return this.appService.authenticated;
+  }
 
   ngOnInit() {
     this.loadUser();

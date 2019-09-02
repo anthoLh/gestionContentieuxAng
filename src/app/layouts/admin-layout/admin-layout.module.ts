@@ -16,6 +16,10 @@ import { TypographyComponent } from "../../pages/typography/typography.component
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { EditUserComponent } from 'src/app/pages/edit-user/edit-user.component';
+import { LoginComponent } from 'src/app/pages/login/login.component';
+import { AffaireComponent } from 'src/app/pages/affaire/affaire.component';
+import { TacheComponent } from 'src/app/pages/tache/tache.component';
+import { TribunauxComponent } from 'src/app/pages/tribunaux/tribunaux.component';
 
 @NgModule({
   imports: [
@@ -26,13 +30,17 @@ import { EditUserComponent } from 'src/app/pages/edit-user/edit-user.component';
     NgbModule,
   ],
   declarations: [
-    DashboardComponent,
     UserComponent,
+    EditUserComponent,
+    LoginComponent,
+    AffaireComponent,
+    TacheComponent,
+    TribunauxComponent,
+    DashboardComponent,
     TablesComponent,
     IconsComponent,
     TypographyComponent,
     NotificationsComponent,
-    EditUserComponent,
     // MapComponent,
     // RtlComponent
   ]
