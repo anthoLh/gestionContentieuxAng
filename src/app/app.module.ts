@@ -20,7 +20,6 @@ import { RoleService } from './service/role.service';
 import { TacheService } from './service/tache.service';
 import { TribunalService } from './service/tribunal.service';
 import { UtilisateurService } from './service/utilisateur.service';
-import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 @NgModule({
   imports: [
@@ -33,7 +32,7 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, EditUserComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   providers: [AffaireService, DocumentService, PhaseService, RoleService, TacheService, TribunalService, UtilisateurService],
   bootstrap: [AppComponent]
 })

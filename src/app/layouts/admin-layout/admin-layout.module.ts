@@ -15,6 +15,7 @@ import { TypographyComponent } from "../../pages/typography/typography.component
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { EditUserComponent } from 'src/app/pages/edit-user/edit-user.component';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     IconsComponent,
     TypographyComponent,
     NotificationsComponent,
+    EditUserComponent,
     // MapComponent,
     // RtlComponent
   ]

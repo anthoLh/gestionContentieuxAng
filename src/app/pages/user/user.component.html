@@ -150,8 +150,10 @@
                 <tr *ngFor="let u of users">
                   <td>{{u.nomUtilisateur}}</td>
                   <td>{{u.prenomUtilisateur}}</td>
-                  <td><button (click)="deleteUser(u)">Delete</button>
-                    <button (click)="editUser(u)">Edit</button></td>
+                  <td>
+                    <button (click)="deleteUser(u)">Delete</button>
+                    <button (click)="editUser(u)">Edit</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
