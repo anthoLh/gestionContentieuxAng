@@ -20,6 +20,10 @@ import { RoleService } from './service/role.service';
 import { TacheService } from './service/tache.service';
 import { TribunalService } from './service/tribunal.service';
 import { UtilisateurService } from './service/utilisateur.service';
+import { AffaireComponent } from './pages/affaire/affaire.component';
+import { TacheComponent } from './pages/tache/tache.component';
+import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
+import { TableauDeBordComponent } from './pages/tableau-de-bord/tableau-de-bord.component';
 
 @NgModule({
   imports: [
@@ -32,7 +36,7 @@ import { UtilisateurService } from './service/utilisateur.service';
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, AffaireComponent, TacheComponent, TribunauxComponent, TableauDeBordComponent],
   providers: [AffaireService, DocumentService, PhaseService, RoleService, TacheService, TribunalService, UtilisateurService],
   bootstrap: [AppComponent]
 })
