@@ -12,12 +12,14 @@ import { LoginComponent } from 'src/app/pages/login/login.component';
 import { AffaireComponent } from 'src/app/pages/affaire/affaire.component';
 import { TacheComponent } from 'src/app/pages/tache/tache.component';
 import { TribunauxComponent } from 'src/app/pages/tribunaux/tribunaux.component';
+import { TableauDeBordComponent } from 'src/app/pages/tableau-de-bord/tableau-de-bord.component';
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
 
   { path: '', redirectTo: '/login', pathMatch:'full'},
   { path: "login", component: LoginComponent },
+  { path: "tdb", component: TableauDeBordComponent },
   { path: "user", component: UserComponent },
   { path: "affaire", component: AffaireComponent },
   { path: "tache", component: TacheComponent },

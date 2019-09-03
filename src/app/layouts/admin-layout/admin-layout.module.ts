@@ -20,6 +20,7 @@ import { LoginComponent } from 'src/app/pages/login/login.component';
 import { AffaireComponent } from 'src/app/pages/affaire/affaire.component';
 import { TacheComponent } from 'src/app/pages/tache/tache.component';
 import { TribunauxComponent } from 'src/app/pages/tribunaux/tribunaux.component';
+import { TableauDeBordComponent } from 'src/app/pages/tableau-de-bord/tableau-de-bord.component';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { TribunauxComponent } from 'src/app/pages/tribunaux/tribunaux.component'
     IconsComponent,
     TypographyComponent,
     NotificationsComponent,
+    TableauDeBordComponent,
     // MapComponent,
     // RtlComponent
   ]
