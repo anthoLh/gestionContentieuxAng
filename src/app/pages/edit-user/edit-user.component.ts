@@ -11,27 +11,27 @@ import { Router } from '@angular/router';
 })
 export class EditUserComponent implements OnInit {
   editForm: FormGroup;
-  user: Utilisateur=new Utilisateur();
+  user: Utilisateur = new Utilisateur();
 
-  constructor(private userService: UtilisateurService, private formBuilder: FormBuilder, private router:Router) { }
+  constructor(private userService: UtilisateurService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
-    let userId= localStorage.getItem("editUserId");
-    if(!userId){
-    alert("Invalid action...")
-    this.router.navigate(['user']);
+    let userId = localStorage.getItem("editUserId");
+    if (!userId) {
+      alert("Invalid action...")
+      this.router.navigate(['user']);
+    }
+    this.editForm = this.formBuilder.group({
+      idUtilisateur: [],
+      nomUtilisateur: [''],
+      prenomUtilisateur: [''],
+    })
+    this.userService.getUtilisateur(+userId).subscribe(data => { this.editForm.setValue(data) })
   }
-  this.editForm = this.formBuilder.group({
-    idUtilisateur:[],
-    nomUtilisateur: [''],
-    prenomUtilisateur: [''],
-  })
-  this.userService.getUtilisateur(+userId).subscribe(data => {this.editForm.setValue(data)})
-}
 
-updateUtilisateur(){
-  var varJSON = JSON.stringify(this.editForm.value);
-  this.userService.updateUtilisateur(varJSON).subscribe(() => this.router.navigate(['user']));
-}
+  updateUtilisateur() {
+    var varJSON = JSON.stringify(this.editForm.value);
+    this.userService.updateUtilisateur(varJSON).subscribe(() => this.router.navigate(['user']));
+  }
 
 }

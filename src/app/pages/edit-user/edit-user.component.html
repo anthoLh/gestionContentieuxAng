@@ -6,33 +6,19 @@
           <h5 class=" title">Modifier un utilisateur</h5>
         </div>
         <div class=" card-body">
-          <form (ngSubmit)="updateUtilisateur()">
-            <div class=" row">
-              <div class=" col-md-3 px-md-1">
-                <div class=" form-group">
-                  <label> Username </label>
-                  <input class=" form-control" placeholder="Username" type="text" value="Username" />
-                </div>
-              </div>
-              <div class=" col-md-4 pl-md-1">
-                <div class=" form-group">
-                  <label for="exampleInputEmail1"> Email address </label>
-                  <input class=" form-control" placeholder="mike@email.com" type="email" />
-                </div>
-              </div>
-            </div>
+          <form [formGroup]="editForm" (ngSubmit)="updateUtilisateur()">
             <div class=" row">
               <div class=" col-md-6 pr-md-1">
                 <div class=" form-group">
                   <label> Nom </label>
-                  <input class=" form-control" placeholder="Nom" type="text" [(ngModel)]="user.nomUtilisateur"
+                  <input class=" form-control" formControlName="nomUtilisateur" placeholder="Nom" type="text" [(ngModel)]="user.nomUtilisateur"
                     name="nomUtilisateur" />
                 </div>
               </div>
               <div class=" col-md-6 pl-md-1">
                 <div class=" form-group">
                   <label> Prénom </label>
-                  <input class=" form-control" placeholder="Prénom" type="text" [(ngModel)]="user.prenomUtilisateur"
+                  <input class=" form-control" formControlName="prenomUtilisateur" placeholder="Prénom" type="text" [(ngModel)]="user.prenomUtilisateur"
                     name="prenomUtilisateur" />
                 </div>
               </div>
