@@ -26,4 +26,9 @@ export class UtilisateurService {
     var userParse = JSON.parse(user);
     return this.httpClient.put('http://localhost:9090/gestionContentieux/utilisateurs/' + userParse.idUtilisateur, userParse);
   }
+
+  public getUtilisateurByName(name: String): Observable<any> {
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/utilisateurs/' + name);
+  }
+  
 }

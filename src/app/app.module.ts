@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from "@angular/core";
+import { NgModule, Injectable } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpInterceptor, HttpRequest, HttpHandler, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
 
@@ -27,6 +27,15 @@ import { TableauDeBordComponent } from './pages/tableau-de-bord/tableau-de-bord.
 import { AppService } from './app.service';
 import { LoginComponent } from './pages/login/login.component';
 
+@Injectable()
+export class XhrInterceptor implements HttpInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    const xhr = req.clone({
+      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
+    });
+    return next.handle(xhr);
+  }
+}
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -38,8 +47,21 @@ import { LoginComponent } from './pages/login/login.component';
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
-  providers: [AppService, AffaireService, DocumentService, PhaseService, RoleService, TacheService, TribunalService, UtilisateurService],
+  declarations: [
+    AppComponent,
+    AdminLayoutComponent,
+    AuthLayoutComponent
+  ],
+  providers: [
+    AppService,
+    AffaireService,
+    DocumentService, 
+    PhaseService,
+    RoleService, 
+    TacheService, 
+    TribunalService, 
+    UtilisateurService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

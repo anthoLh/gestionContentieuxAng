@@ -9,27 +9,35 @@ import { AppService } from 'src/app/app.service';
   templateUrl: "user.component.html"
 })
 export class UserComponent implements OnInit {
-  users:any[];
+  users: any[];
   user: Utilisateur = new Utilisateur();
-  constructor(private userService: UtilisateurService, private router: Router, private appService: AppService) {}
- 
-  authenticated(){
+  constructor(private userService: UtilisateurService, private router: Router, private appService: AppService) { }
+
+  authenticated() {
     return this.appService.authenticated;
   }
 
   ngOnInit() {
     this.loadUser();
   }
+  // TEST A FAIRE chercher un utilisateur
+  lookForUser() {
+    this.userService.getUtilisateurByName(this.user.nomUtilisateur).subscribe(
+      data => {this.user ; },
+    error => { console.log(error); }
+    )
+  }
+  // TEST A FAIRE ^^
 
   loadUser() {
     this.userService.getAllUtilisateur().subscribe(
-      data => {this.users = data;},
-      error => {console.log(error);}
+      data => { this.users = data; },
+      error => { console.log(error); }
     )
   }
   createUser() {
     this.userService.saveUtilisateur(this.user).subscribe(
-      () => {this.loadUser(); this.user = new Utilisateur(); }
+      () => { this.loadUser(); this.user = new Utilisateur(); }
     )
   }
   deleteUser(user) {
@@ -38,9 +46,9 @@ export class UserComponent implements OnInit {
       error => { console.log(error); }
     )
   }
-  editUser(user){
+  editUser(user) {
     localStorage.removeItem("editUserId");
-    localStorage.setItem("editUserId",user.idUtilisateur.toString());
-    this.router.navigate(['updateUser',user.idUtilisateur]);
+    localStorage.setItem("editUserId", user.idUtilisateur.toString());
+    this.router.navigate(['updateUser', user.idUtilisateur]);
   }
 }
