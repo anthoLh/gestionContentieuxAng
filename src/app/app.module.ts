@@ -38,7 +38,7 @@ import { LoginComponent } from './pages/login/login.component';
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, AffaireComponent, TacheComponent, TribunauxComponent, TableauDeBordComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   providers: [AppService, AffaireService, DocumentService, PhaseService, RoleService, TacheService, TribunalService, UtilisateurService],
   bootstrap: [AppComponent]
 })
