@@ -31,7 +31,7 @@ export class UserComponent implements OnInit {
 
   loadUser() {
     this.userService.getAllUtilisateur().subscribe(
-      data => { this.users = data; },
+      data => { this.users = data; console.log("Les utilisateurs = " + this.users) },
       error => { console.log(error); }
     )
   }
@@ -49,6 +49,6 @@ export class UserComponent implements OnInit {
   editUser(user) {
     localStorage.removeItem("editUserId");
     localStorage.setItem("editUserId", user.idUtilisateur.toString());
-    this.router.navigate(['updateUser', user.idUtilisateur]);
+    this.router.navigate(['updateUtilisateur', user.idUtilisateur]);
   }
 }

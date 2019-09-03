@@ -28,7 +28,7 @@ export class UtilisateurService {
   }
 
   public getUtilisateurByName(name: String): Observable<any> {
-    return this.httpClient.get('http://localhost:9090/gestionContentieux/utilisateurs/' + name);
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/utilisateurs/nomUtilisateur/' + name);
   }
   
 }

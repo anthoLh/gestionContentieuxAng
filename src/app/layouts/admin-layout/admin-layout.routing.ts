@@ -24,7 +24,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "affaire", component: AffaireComponent },
   { path: "tache", component: TacheComponent },
   { path: "tribunaux", component: TribunauxComponent },
-  { path: "updateUser/:id", component: EditUserComponent },
+  { path: "updateUtilisateur/:id", component: EditUserComponent },
   //{ path: "maps", component: MapComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "icons", component: IconsComponent },
