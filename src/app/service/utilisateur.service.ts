@@ -14,7 +14,7 @@ export class UtilisateurService {
     return this.httpClient.get('http://localhost:9090/gestionContentieux/utilisateurs').map(response => response);
   }
   public getUtilisateur(id: number): Observable<any> {
-    return this.httpClient.get('http://localhost:9090/gestionContentieux/utilisateurs/' + id);
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/utilisateurs/id/' + id);
   }
   public saveUtilisateur(user: any): Observable<any> {
     return this.httpClient.post('http://localhost:9090/gestionContentieux/utilisateurs', user);
