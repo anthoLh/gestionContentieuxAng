@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Affaire } from 'src/app/model/affaire';
 import { AffaireService } from 'src/app/service/affaire.service';
 import { Router } from '@angular/router';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-affaire',
@@ -12,8 +13,12 @@ export class AffaireComponent implements OnInit {
   affaires: any[];
   affaire: Affaire = new Affaire();
 
-  constructor(private affaireService: AffaireService, private router: Router) { }
+  constructor(private affaireService: AffaireService, private router: Router, private appService: AppService) { }
 
+  authenticated() {
+    return this.appService.authenticated;
+  }
+  
   ngOnInit() {
     this.loadAffaire();
   }

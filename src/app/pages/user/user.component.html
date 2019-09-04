@@ -1,126 +1,119 @@
 <div class=" content">
-  <!-- <div [hidden]="!authenticated()"> -->
-  <div class=" row">
-    <div class=" col-md-3 text-center">
-        <img src="./assets/img/time.png"/>
-    </div>
-    <div class=" col-md-6">
-      <div class=" card">
-        <div class=" card-header">
-          <h5 class=" title">Ajouter un utilisateur</h5>
-        </div>
-        <div class=" card-body">
-          <form (ngSubmit)="createUser()">
-            <div class=" row">
-              <div class=" col-md-6 px-md-1">
-                <div class=" form-group">
-                  <label> Username </label>
-                  <input class=" form-control" placeholder="Username" type="text" name="Username" [(ngModel)]="user.username"/>
+  <div [hidden]="!authenticated()">
+    <div class=" row">
+      <div class=" col-md-6">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 class=" title">Ajouter un utilisateur</h5>
+          </div>
+          <div class=" card-body">
+            <form (ngSubmit)="createUser()">
+              <div class=" row">
+                <div class=" col-md-6 px-md-1">
+                  <div class=" form-group">
+                    <label> Username </label>
+                    <input class=" form-control" placeholder="Username" type="text" name="Username"
+                      [(ngModel)]="user.username" />
+                  </div>
+                </div>
+                <div class=" col-md-6 pl-md-1">
+                  <div class=" form-group">
+                    <label> Mot de passe </label>
+                    <input class=" form-control" placeholder="password" type="text" [(ngModel)]="user.password"
+                      name="password" />
+                  </div>
+                </div>
+                <br>
+                <div class=" col-md-12 pl-md-1">
+                  <div class=" form-group">
+                    <label for="exampleInputEmail1"> Email address </label>
+                    <input class=" form-control" placeholder="email@email.com" type="email" [(ngModel)]="user.email" />
+                  </div>
                 </div>
               </div>
-              <div class=" col-md-6 pl-md-1">
-                <div class=" form-group">
-                  <label> Mot de passe </label>
-                  <input class=" form-control" placeholder="password" type="text" [(ngModel)]="user.password"
-                    name="password" />
+              <div class=" row">
+                <div class=" col-md-6 pr-md-1">
+                  <div class=" form-group">
+                    <label> Nom </label>
+                    <input class=" form-control" placeholder="Nom" type="text" [(ngModel)]="user.nomUtilisateur"
+                      name="nomUtilisateur" />
+                  </div>
+                </div>
+                <div class=" col-md-6 pl-md-1">
+                  <div class=" form-group">
+                    <label> Prénom </label>
+                    <input class=" form-control" placeholder="Prénom" type="text" [(ngModel)]="user.prenomUtilisateur"
+                      name="prenomUtilisateur" />
+                  </div>
                 </div>
               </div>
-              <br>
-              <div class=" col-md-12 pl-md-1">
-                <div class=" form-group">
-                  <label for="exampleInputEmail1"> Email address </label>
-                  <input class=" form-control" placeholder="mike@email.com" type="email" [(ngModel)]="user.email"/>
-                </div>
+              <div class=" card-footer text-center">
+                <button class=" btn btn-fill btn-danger" type="submit">Ajouter</button>
               </div>
-            </div>
-            <div class=" row">
-              <div class=" col-md-6 pr-md-1">
-                <div class=" form-group">
-                  <label> Nom </label>
-                  <input class=" form-control" placeholder="Nom" type="text" [(ngModel)]="user.nomUtilisateur"
-                    name="nomUtilisateur" />
-                </div>
-              </div>
-              <div class=" col-md-6 pl-md-1">
-                <div class=" form-group">
-                  <label> Prénom </label>
-                  <input class=" form-control" placeholder="Prénom" type="text" [(ngModel)]="user.prenomUtilisateur"
-                    name="prenomUtilisateur" />
-                </div>
-              </div>
-            </div>
-            <div class=" card-footer text-center">
-              <button class=" btn btn-fill btn-danger" type="submit">Ajouter</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class=" col-md-3">
-    </div>
-  </div>
-  <div class=" row">
-    <div class=" col-md-3">
-    </div>
-    <div class=" col-md-6">
-      <div class=" card">
-        <div class=" card-header">
-          <h5 class=" title">Rechercher un utilisateur</h5>
-        </div>
-        <div class=" card-body">
-          <form (ngSubmit)="lookForUser()">
-            <div class=" row">
-              <div class=" col-md-12 pr-md-1">
-                <div class=" form-group">
-                  <label> Nom </label>
-                  <input class=" form-control" placeholder="Nom de l'utilisateur recherché" type="text"
-                    [(ngModel)]="user.nomUtilisateur" name="nomUtilisateur" />
-                </div>
-              </div>
-            </div>
-            <div class=" card-footer text-right">
-              <button class=" btn btn-fill btn-danger" type="submit">Rechercher</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div class=" col-md-3">
-    </div>
-
-  </div>
-
-  <div class=" row">
-    <div class=" col-md-12">
-      <div class=" card">
-        <div class=" card-header">
-          <h5 class="title">Liste des utilisateurs</h5>
-        </div>
-        <div class=" card-body">
-          <div class=" table-responsive">
-            <table class=" table tablesorter">
-              <thead>
-                <tr>
-                  <th>Nom</th>
-                  <th>Prénom</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let u of users">
-                  <td>{{u.nomUtilisateur}}</td>
-                  <td>{{u.prenomUtilisateur}}</td>
-                  <td>
-                    <button (click)="deleteUser(u)">Delete</button>
-                    <button (click)="editUser(u)">Edit</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            </form>
           </div>
         </div>
       </div>
-    <!-- </div> -->
+      <div class=" col-md-6">
+          <div class=" card">
+            <div class=" card-header">
+              <h5 class=" title">Rechercher un utilisateur</h5>
+            </div>
+            <div class=" card-body">
+              <form (ngSubmit)="lookForUser()">
+                <div class=" row">
+                  <div class=" col-md-12 pr-md-1">
+                    <div class=" form-group">
+                      <label> Nom </label>
+                      <input class=" form-control" placeholder="Nom de l'utilisateur recherché" type="text"
+                        [(ngModel)]="user.nomUtilisateur" name="nomUtilisateur" />
+                    </div>
+                  </div>
+                </div>
+                <div class=" card-footer text-right">
+                  <button class=" btn btn-fill btn-danger" type="submit">Rechercher</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 class="title">Liste des utilisateurs</h5>
+          </div>
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let u of users">
+                    <td>{{u.nomUtilisateur}}</td>
+                    <td>{{u.prenomUtilisateur}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.username}}</td>
+                    <td>
+                      <button class=" btn btn-fill" (click)="deleteUser(u)">Delete</button> &nbsp;
+                      <button class=" btn btn-fill" (click)="editUser(u)">Edit</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div [hidden]="authenticated()">

@@ -1,83 +1,86 @@
 <div class=" content">
-  <!-- <div [hidden]="!authenticated()"> -->
-  <div class=" row">
-    <div class=" col-md-3">
-    </div>
-    <div class=" col-md-6">
-      <div class=" card">
-        <div class=" card-header">
-          <h5 class=" title">Ajouter une affaire</h5>
-        </div>
-        <div class=" card-body">
-          <form (ngSubmit)="createAffaire()">
-            <div class=" row">
-              <div class=" col-md-6 px-md-1">
-                <div class=" form-group">
-                  <label> Reference </label>
-                  <input class=" form-control" placeholder="Ref" type="text" name="Ref" [(ngModel)]="affaire.reference"/>
+  <div [hidden]="!authenticated()">
+    <div class=" row">
+      <div class=" col-md-3">
+      </div>
+      <div class=" col-md-6">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 class=" title">Ajouter une affaire</h5>
+          </div>
+          <div class=" card-body">
+            <form (ngSubmit)="createAffaire()">
+              <div class=" row">
+                <div class=" col-md-6 px-md-1">
+                  <div class=" form-group">
+                    <label> Reference </label>
+                    <input class=" form-control" placeholder="Ref" type="text" name="Ref"
+                      [(ngModel)]="affaire.reference" />
+                  </div>
+                </div>
+                <div class=" col-md-6 pl-md-1">
+                  <div class=" form-group">
+                    <label> titre</label>
+                    <input class=" form-control" placeholder="titre" type="text" name="titre"
+                      [(ngModel)]="affaire.titre" />
+                  </div>
+                </div>
+                <br>
+                <div class=" col-md-12 pl-md-1">
+                  <div class=" form-group">
+                    <label> Description </label>
+                    <input class=" form-control" placeholder="desc" type="text" name="desc"
+                      [(ngModel)]="affaire.descriptionAffaire" />
+                  </div>
                 </div>
               </div>
-              <div class=" col-md-6 pl-md-1">
-                <div class=" form-group">
-                  <label> titre</label>
-                  <input class=" form-control" placeholder="titre" type="text" name="titre" [(ngModel)]="affaire.titre"/>
-                </div>
+              <div class=" card-footer text-center">
+                <button class=" btn btn-fill btn-danger" type="submit">Ajouter</button>
               </div>
-              <br>
-              <div class=" col-md-12 pl-md-1">
-                <div class=" form-group">
-                  <label> Description </label>
-                  <input class=" form-control" placeholder="desc" type="text" name="desc" [(ngModel)]="affaire.description"/>
-                </div>
-              </div>
-            </div>
-            <div class=" card-footer text-center">
-              <button class=" btn btn-fill btn-danger" type="submit">Ajouter</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
+      <div class=" col-md-3">
+      </div>
     </div>
-    <div class=" col-md-3">
-    </div>
-  </div>
-  <div class=" row">
-    <div class=" col-md-12">
-      <div class=" card">
-        <div class=" card-header">
-          <h5 class="title">Liste des affaires</h5>
-        </div>
-        <div class=" card-body">
-          <div class=" table-responsive">
-            <table class=" table tablesorter">
-              <thead>
-                <tr>
-                  <th>Reference</th>
-                  <th>Titre</th>
-                  <th>Description</th>
-                  <th>Statut</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let a of affaires">
-                  <td>{{a.reference}}</td>
-                  <td>{{a.titre}}</td>
-                  <td>{{a.descriptionAffaire}}</td>
-                  <td>{{a.statut}}</td>
-                  <td>
-                    <button (click)="deleteAffaire(a)">Delete</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card">
+          <div class=" card-header">
+            <h5 class="title">Liste des affaires</h5>
+          </div>
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter">
+                <thead>
+                  <tr>
+                    <th>Reference</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Statut</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of affaires">
+                    <td>{{a.reference}}</td>
+                    <td>{{a.titre}}</td>
+                    <td>{{a.descriptionAffaire}}</td>
+                    <td>{{a.statut}}</td>
+                    <td>
+                      <button (click)="deleteAffaire(a)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!--</div> -->
   </div>
-  <!-- <div [hidden]="authenticated()">
-      <p>Login to see your user interface</p>
-    </div> -->
+  <div [hidden]="authenticated()">
+    <p>Login to see your user interface</p>
+  </div>
 </div>
