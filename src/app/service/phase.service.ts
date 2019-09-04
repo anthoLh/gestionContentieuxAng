@@ -11,19 +11,19 @@ export class PhaseService {
   constructor(private httpClient: HttpClient) { }
 
   public getAllPhase(): Observable<any> {
-    return this.httpClient.get('http://localhost:9090/phases').map(Response => Response);
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/phases').map(Response => Response);
   }
   public getPhase(id: number): Observable<any> {
-    return this.httpClient.get('http://localhost:9090/phases/' + id);
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/phases/' + id);
   }
   public savePhase(phase: any): Observable<any> {
-    return this.httpClient.post('http://localhost:9090/phases', phase);
+    return this.httpClient.post('http://localhost:9090/gestionContentieux/phases', phase);
   }
   public deletePhase(id: number): Observable<any> {
-    return this.httpClient.delete('http://localhost:9090/phases/'+id);
+    return this.httpClient.delete('http://localhost:9090/gestionContentieux/phases/'+id);
   }
   public updatePhase(phase: any): Observable<any> {
     var phaseParse = JSON.parse(phase);
-    return this.httpClient.put('http://localhost:9090/phases/' + phaseParse.idPhase, phaseParse);
+    return this.httpClient.put('http://localhost:9090/gestionContentieux/phases/' + phaseParse.idPhase, phaseParse);
   }
 }

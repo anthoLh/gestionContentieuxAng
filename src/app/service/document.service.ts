@@ -11,19 +11,19 @@ export class DocumentService {
   constructor(private httpClient: HttpClient) { }
 
   public getAllDocument(): Observable<any> {
-    return this.httpClient.get('http://localhost:9090/documents').map(Response => Response);
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/documents').map(Response => Response);
   }
   public getDocument(id: number): Observable<any> {
-    return this.httpClient.get('http://localhost:9090/documents/' + id);
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/documents/' + id);
   }
   public saveDocument(document: any): Observable<any> {
-    return this.httpClient.post('http://localhost:9090/documents', document);
+    return this.httpClient.post('http://localhost:9090/gestionContentieux/documents', document);
   }
   public deleteDocument(id: number): Observable<any> {
-    return this.httpClient.delete('http://localhost:9090/documents/'+id);
+    return this.httpClient.delete('http://localhost:9090/gestionContentieux/documents/'+id);
   }
   public updateDocument(document: any): Observable<any> {
     var documentParse = JSON.parse(document);
-    return this.httpClient.put('http://localhost:9090/documents/' + documentParse.idDocument, documentParse);
+    return this.httpClient.put('http://localhost:9090/gestionContentieux/documents/' + documentParse.idDocument, documentParse);
   }
 }

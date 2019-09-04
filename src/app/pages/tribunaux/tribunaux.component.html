@@ -1,3 +1,42 @@
-<p>
-  tribunaux works!
-</p>
+<div class=" content">
+    <div [hidden]="!authenticated()">
+      <div class=" row">
+        <div class=" col-md-12">
+          <div class=" card">
+              <div class="text-center">
+                <br>
+                <img src="assets/img/justice.png">
+              </div>
+            <div class=" card-header">
+              <h5 class="title">Liste des tribunaux</h5>
+            </div>
+            <div class=" card-body">
+              <div class=" table-responsive">
+                <table class=" table tablesorter">
+                  <thead>
+                    <tr>
+                      <th>Adresse</th>
+                      <th>Fax</th>
+                      <th>Tel</th>
+                      <th>Region</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let t of tribunals">
+                      <td>{{t.adresse}}</td>
+                      <td>{{t.fax}}</td>
+                      <td>{{t.tel}}</td>
+                      <td>{{t.region}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div [hidden]="authenticated()">
+      <p>Login to see your user interface</p>
+    </div>
+  </div>

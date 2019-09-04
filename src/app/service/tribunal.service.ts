@@ -11,19 +11,19 @@ export class TribunalService {
   constructor(private httpClient: HttpClient) { }
 
   public getAllTribunal(): Observable<any> {
-    return this.httpClient.get('http://localhost:9090/tribunals').map(Response => Response);
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/tribunals').map(Response => Response);
   }
   public getTribunal(id: number): Observable<any> {
-    return this.httpClient.get('http://localhost:9090/tribunals/' + id);
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/tribunals/' + id);
   }
   public saveTribunal(tribunal: any): Observable<any> {
-    return this.httpClient.post('http://localhost:9090/tribunals', tribunal);
+    return this.httpClient.post('http://localhost:9090/gestionContentieux/tribunals', tribunal);
   }
   public deleteTribunal(id: number): Observable<any> {
-    return this.httpClient.delete('http://localhost:9090/tribunals/'+id);
+    return this.httpClient.delete('http://localhost:9090/gestionContentieux/tribunals/'+id);
   }
   public updateTribunal(tribunal: any): Observable<any> {
     var tribunalParse = JSON.parse(tribunal);
-    return this.httpClient.put('http://localhost:9090/tribunals/' + tribunalParse.idTribunal, tribunalParse);
+    return this.httpClient.put('http://localhost:9090/gestionContentieux/tribunals/' + tribunalParse.idTribunal, tribunalParse);
   }
 }
