@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule, Injectable } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { HttpClientModule, HttpInterceptor, HttpRequest, HttpHandler, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HttpClientModule, HttpInterceptor, HttpRequest, HttpHandler,} from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
 
@@ -20,10 +20,6 @@ import { RoleService } from './service/role.service';
 import { TacheService } from './service/tache.service';
 import { TribunalService } from './service/tribunal.service';
 import { UtilisateurService } from './service/utilisateur.service';
-import { AffaireComponent } from './pages/affaire/affaire.component';
-import { TacheComponent } from './pages/tache/tache.component';
-import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
-import { TableauDeBordComponent } from './pages/tableau-de-bord/tableau-de-bord.component';
 import { AppService } from './app.service';
 import { LoginComponent } from './pages/login/login.component';
 import { FilterPipe } from './pages/user/filter.pipe';
@@ -46,7 +42,7 @@ export class XhrInterceptor implements HttpInterceptor {
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   declarations: [
     AppComponent,

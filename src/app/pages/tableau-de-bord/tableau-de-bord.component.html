@@ -1,3 +1,12 @@
-<p>
-  tableau-de-bord works!
-</p>
+<div class=" content">
+    <div [hidden]="!authenticated()">
+      <div class=" row">
+        <div class=" col-md-12">
+          test
+        </div>
+      </div>
+    </div>
+    <div [hidden]="authenticated()">
+      <p>Login to see your user interface</p>
+    </div>
+  </div>
