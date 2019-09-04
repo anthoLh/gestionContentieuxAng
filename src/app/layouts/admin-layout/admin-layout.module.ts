@@ -21,6 +21,7 @@ import { AffaireComponent } from 'src/app/pages/affaire/affaire.component';
 import { TacheComponent } from 'src/app/pages/tache/tache.component';
 import { TribunauxComponent } from 'src/app/pages/tribunaux/tribunaux.component';
 import { TableauDeBordComponent } from 'src/app/pages/tableau-de-bord/tableau-de-bord.component';
+import { FilterPipe } from 'src/app/pages/user/filter.pipe';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import { TableauDeBordComponent } from 'src/app/pages/tableau-de-bord/tableau-de
     TypographyComponent,
     NotificationsComponent,
     TableauDeBordComponent,
+    FilterPipe,
     // MapComponent,
     // RtlComponent
   ]

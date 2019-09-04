@@ -54,32 +54,34 @@
           </div>
         </div>
       </div>
-      <div class=" col-md-6">
-          <div class=" card">
-              <div class="text-center">
-                <img src="assets/img/mart.png">
-              </div>
-            <div class=" card-header">
-              <h5 class=" title">Rechercher un utilisateur</h5>
-            </div>
-            <div class=" card-body">
-              <form (ngSubmit)="lookForUser()">
-                <div class=" row">
-                  <div class=" col-md-12 pr-md-1">
-                    <div class=" form-group">
-                      <label> Nom </label>
-                      <input class=" form-control" placeholder="Nom de l'utilisateur recherché" type="text"
-                        [(ngModel)]="user.nomUtilisateur" name="nomUtilisateur" />
-                    </div>
+      <div class=" col-md-6" style="">
+        <div class=" card">
+          <div class="text-center">
+            <img src="assets/img/mart.png">
+          </div>
+          <div class=" card-header">
+            <h5 class=" title">Rechercher un utilisateur</h5>
+          </div>
+          <div class=" card-body">
+            <form>
+              <div class=" row">
+                <div class=" col-md-12 pr-md-1">
+                  <div class=" form-group">
+                    <label> Nom </label>
+                    <input class=" form-control" placeholder="Nom de l'utilisateur recherché" type="text"
+                      [(ngModel)]="searchText" name="search" />
+                    <ul>
+                      <li *ngFor="let u of users | filter: searchText">
+                        {{u.nomUtilisateur}}, {{u.prenomUtilisateur}}
+                      </li>
+                    </ul>
                   </div>
                 </div>
-                <div class=" card-footer text-right">
-                  <button class=" btn btn-fill" type="submit">Rechercher</button>
-                </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
+      </div>
     </div>
 
     <div class=" row">

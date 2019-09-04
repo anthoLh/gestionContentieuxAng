@@ -26,6 +26,7 @@ import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
 import { TableauDeBordComponent } from './pages/tableau-de-bord/tableau-de-bord.component';
 import { AppService } from './app.service';
 import { LoginComponent } from './pages/login/login.component';
+import { FilterPipe } from './pages/user/filter.pipe';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -50,7 +51,7 @@ export class XhrInterceptor implements HttpInterceptor {
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
   ],
   providers: [
     AppService,
