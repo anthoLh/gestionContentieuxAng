@@ -14,7 +14,7 @@ export class AffaireService {
     return this.httpClient.get('http://localhost:9090/gestionContentieux/affaires').map(Response => Response);
   }
   public getAffaire(id: number): Observable<any> {
-    return this.httpClient.get('http://localhost:9090/gestionContentieux/affaires/' + id);
+    return this.httpClient.get('http://localhost:9090/gestionContentieux/affaires/id/' + id);
   }
   public saveAffaire(affaire: any): Observable<any> {
     return this.httpClient.post('http://localhost:9090/gestionContentieux/affaires', affaire);

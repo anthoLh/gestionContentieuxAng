@@ -12,8 +12,6 @@ import { TacheService } from 'src/app/service/tache.service';
 export class TacheComponent implements OnInit {
   taches: any[];
   tache: Tache = new Tache();
-  viewDate: Date = new Date();
-  events = [];
 
   constructor(private tacheService: TacheService, private router: Router, private appService: AppService) { }
 

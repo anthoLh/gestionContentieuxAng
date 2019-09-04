@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-tableau-de-bord',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableauDeBordComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router, private appService: AppService) { }
+
+  authenticated() {
+    return this.appService.authenticated;
+  }
 
   ngOnInit() {
   }
