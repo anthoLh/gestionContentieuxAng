@@ -1,8 +1,6 @@
 <div class=" content">
   <div [hidden]="!authenticated()">
     <div class=" row">
-      <div class=" col-md-3">
-      </div>
       <div class=" col-md-6">
         <div class=" card">
           <div class=" card-header">
@@ -35,14 +33,39 @@
                 </div>
               </div>
               <div class=" card-footer text-center">
-                <button class=" btn btn-fill btn-danger" type="submit">Ajouter</button>
+                <button class=" btn btn-fill" type="submit">Ajouter</button>
               </div>
             </form>
           </div>
         </div>
       </div>
-      <div class=" col-md-3">
-      </div>
+      <div class=" col-md-6">
+          <div class=" card">
+              <div class="text-center">
+                <br>
+                <img src="assets/img/book.png" style="width: 47px;">
+              </div>
+            <div class=" card-header">
+              <h5 class=" title">Rechercher une affaire</h5>
+            </div>
+            <div class=" card-body">
+              <form>
+                <div class=" row">
+                  <div class=" col-md-12 pr-md-1">
+                    <div class=" form-group">
+                      <label> Titre </label>
+                      <input class=" form-control" placeholder="Titre affaire" type="text"
+                        [(ngModel)]="affaire.titre" name="titre" />
+                    </div>
+                  </div>
+                </div>
+                <div class=" card-footer text-right">
+                  <button class=" btn btn-fill" type="submit">Rechercher</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
     </div>
     <div class=" row">
       <div class=" col-md-12">
@@ -59,7 +82,6 @@
                     <th>Titre</th>
                     <th>Description</th>
                     <th>Statut</th>
-                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -68,9 +90,6 @@
                     <td>{{a.titre}}</td>
                     <td>{{a.descriptionAffaire}}</td>
                     <td>{{a.statut}}</td>
-                    <td>
-                      <button (click)="deleteAffaire(a)">Delete</button>
-                    </td>
                   </tr>
                 </tbody>
               </table>

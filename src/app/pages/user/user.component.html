@@ -48,7 +48,7 @@
                 </div>
               </div>
               <div class=" card-footer text-center">
-                <button class=" btn btn-fill btn-danger" type="submit">Ajouter</button>
+                <button class=" btn btn-fill" type="submit">Ajouter</button>
               </div>
             </form>
           </div>
@@ -56,6 +56,9 @@
       </div>
       <div class=" col-md-6">
           <div class=" card">
+              <div class="text-center">
+                <img src="assets/img/mart.png">
+              </div>
             <div class=" card-header">
               <h5 class=" title">Rechercher un utilisateur</h5>
             </div>
@@ -71,7 +74,7 @@
                   </div>
                 </div>
                 <div class=" card-footer text-right">
-                  <button class=" btn btn-fill btn-danger" type="submit">Rechercher</button>
+                  <button class=" btn btn-fill" type="submit">Rechercher</button>
                 </div>
               </form>
             </div>
@@ -104,8 +107,8 @@
                     <td>{{u.email}}</td>
                     <td>{{u.username}}</td>
                     <td>
-                      <button class=" btn btn-fill" (click)="deleteUser(u)">Delete</button> &nbsp;
-                      <button class=" btn btn-fill" (click)="editUser(u)">Edit</button>
+                      <button class=" btn btn-fill" (click)="editUser(u)">Edit</button> &nbsp;
+                      <button class=" btn btn-fill btn-danger" (click)="deleteUser(u)">Delete</button>
                     </td>
                   </tr>
                 </tbody>
