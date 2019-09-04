@@ -10,6 +10,8 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
@@ -20,12 +22,7 @@ import { RoleService } from './service/role.service';
 import { TacheService } from './service/tache.service';
 import { TribunalService } from './service/tribunal.service';
 import { UtilisateurService } from './service/utilisateur.service';
-import { AffaireComponent } from './pages/affaire/affaire.component';
-import { TacheComponent } from './pages/tache/tache.component';
-import { TribunauxComponent } from './pages/tribunaux/tribunaux.component';
-import { TableauDeBordComponent } from './pages/tableau-de-bord/tableau-de-bord.component';
 import { AppService } from './app.service';
-import { LoginComponent } from './pages/login/login.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor {
@@ -45,7 +42,11 @@ export class XhrInterceptor implements HttpInterceptor {
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    // CalendarModule.forRoot({
+    //   provide: DateAdapter,
+    //   useFactory: adapterFactory
+    // })
   ],
   declarations: [
     AppComponent,
